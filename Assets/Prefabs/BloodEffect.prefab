@@ -4783,7 +4783,7 @@ ParticleSystem:
 --- !u!199 &7191913028655193332
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4851,6 +4851,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7783886862387032533}
+  - component: {fileID: 6674181450238168864}
   m_Layer: 0
   m_Name: BloodEffect
   m_TagString: Effects
@@ -4874,6 +4875,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6674181450238168864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3175875602839779472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d243f5bd277f7a7459db0d81938b7784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsToReset: 0
 --- !u!1 &7905710552158739358
 GameObject:
   m_ObjectHideFlags: 0
@@ -9625,7 +9639,7 @@ ParticleSystem:
 --- !u!199 &6011367214490763758
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14435,7 +14449,7 @@ ParticleSystem:
 --- !u!199 &8699732708416063256
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

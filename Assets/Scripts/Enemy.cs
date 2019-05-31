@@ -63,8 +63,7 @@ public class Enemy : MonoBehaviour
 
 	void Die ()
 	{
-		Instantiate(bloodEffect, transform.position, Quaternion.identity, InstanceMediator.Instance.GetCurrentRoom().transform);
+        ObjectPooler.Instance.SpawnFromPool("Blood", transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
-
 }
