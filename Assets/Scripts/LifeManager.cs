@@ -11,7 +11,7 @@ public class LifeManager : MonoBehaviour
 		instance = this;
 	}
 
-	public int lives = 3;
+	private int lives = 3;
 
 	public GameObject shop;
 	public GameObject gameOver;
@@ -30,12 +30,16 @@ public class LifeManager : MonoBehaviour
 			shop.SetActive(true);
 		}
 	}
+    
+    public int GetLives()
+    {
+        return lives;
+    }
 
 	public void Revive()
 	{
 		// Return to last spawnpoint
-		GameManager.instance.ResetAllRooms(Pentagram.ActiveRoomName);
-		//GameManager.instance.LoadNewRoom(Pentagram.activePentagram.transform.parent.gameObject, DoorDirection.NONE);
+		InstanceMediator.Instance.ResetAllRooms(Pentagram.ActiveRoomName);
 		player.transform.position = Pentagram.ActivePosition;
 		player.Revive();
 	}

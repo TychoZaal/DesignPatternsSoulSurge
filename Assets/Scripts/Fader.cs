@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Fader : MonoBehaviour
 {
-
 	public static Fader instance;
 
 	private void Awake()

@@ -5,12 +5,11 @@ using TMPro;
 
 public class Lives : MonoBehaviour
 {
-
 	public TextMeshProUGUI text;
 
 	private void Update()
 	{
-		text.text = LifeManager.instance.lives + " left";
+		text.text = InstanceMediator.Instance.GetLives() + " left";
 	}
 
 }

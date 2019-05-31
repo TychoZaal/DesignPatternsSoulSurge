@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
 	public static GameManager instance;
 
 	private void Awake()
@@ -13,7 +12,7 @@ public class GameManager : MonoBehaviour
 		instance = this;
 	}
 
-	public GameObject currentRoom;
+	private GameObject currentRoom;
 	public bool isLoading = false;
 
 	public Rigidbody2D playerRB;
@@ -139,4 +138,8 @@ public class GameManager : MonoBehaviour
 		isLoading = false;
 	}
 
+    public GameObject GetCurrentRoom()
+    {
+        return currentRoom;
+    }
 }
