@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SoulFragment : MonoBehaviour
 {
-
 	public static List<string> roomsPickedUp;
 
 	public GameObject effect;
@@ -26,10 +25,9 @@ public class SoulFragment : MonoBehaviour
 		if (collider.CompareTag("Player"))
 		{
 			roomsPickedUp.Add(transform.parent.name);
-			Instantiate(effect, transform.position, Quaternion.identity, GameManager.instance.currentRoom.transform);
-			LifeManager.instance.GainLife();
+			Instantiate(effect, transform.position, Quaternion.identity, InstanceMediator.Instance.GetCurrentRoom().transform);
+			InstanceMediator.Instance.GainLife();
 			Destroy(gameObject);
 		}
 	}
-
 }

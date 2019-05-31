@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
 	public int maxHealth = 3;
 	int health;
 
@@ -96,8 +95,8 @@ public class Player : MonoBehaviour
 		if (isDead)
 			return;
 
-		LifeManager.instance.LooseLife();
-		Instantiate(bloodEffect, transform.position, Quaternion.identity, GameManager.instance.currentRoom.transform);
+		InstanceMediator.Instance.LooseLife();
+		Instantiate(bloodEffect, transform.position, Quaternion.identity, InstanceMediator.Instance.GetCurrentRoom().transform);
 
 		StopAllCoroutines();
 

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
 	public int health = 20;
 
 	public GameObject bloodEffect;
@@ -64,7 +63,7 @@ public class Enemy : MonoBehaviour
 
 	void Die ()
 	{
-		Instantiate(bloodEffect, transform.position, Quaternion.identity, GameManager.instance.currentRoom.transform);
+		Instantiate(bloodEffect, transform.position, Quaternion.identity, InstanceMediator.Instance.GetCurrentRoom().transform);
 		Destroy(gameObject);
 	}
 

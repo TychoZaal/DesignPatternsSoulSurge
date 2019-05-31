@@ -7,7 +7,6 @@ public enum DoorDirection { RIGHT, LEFT, UP, DOWN, NONE };
 
 public class Door : MonoBehaviour
 {
-
 	public GameObject room;
 
 	public DoorDirection direction;
@@ -17,7 +16,7 @@ public class Door : MonoBehaviour
 		if (collider.CompareTag("Player"))
 		{
 			if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-				GameManager.instance.LoadNewRoom(room, direction);
+				InstanceMediator.Instance.LoadNewRoom(room, direction);
 		}
 	}
 

@@ -4,27 +4,27 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-
 	public Player player;
 	public PlayerMovement playerMovement;
 	public PlayerSword playerSword;
 
 	public void OnSpeed()
 	{
-		LifeManager.instance.Revive();
-		playerMovement.speed += 1f;
+        InstanceMediator.Instance.Revive();
+
+        playerMovement.speed += 1f;
 	}
 
 	public void OnDamage()
 	{
-		LifeManager.instance.Revive();
-		playerSword.damage += 5;
+        InstanceMediator.Instance.Revive();
+        playerSword.damage += 5;
 	}
 
 	public void OnHealth()
 	{
-		LifeManager.instance.Revive();
-		player.maxHealth += 1;
+        InstanceMediator.Instance.Revive();
+        player.maxHealth += 1;
 	}
 
 }
