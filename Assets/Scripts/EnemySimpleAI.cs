@@ -18,6 +18,8 @@ public class EnemySimpleAI : MonoBehaviour
 	public Vector2 attackOffset;
 
 	public bool isRanged = false;
+    public Factory factory;
+    public string bulletType;
 	public GameObject bulletPrefab;
 	public float bulletSpeed = 5f;
 
@@ -41,14 +43,14 @@ public class EnemySimpleAI : MonoBehaviour
 
 	void Attack()
 	{
-		target.GetComponent<Player>().TakeDamage(1);
+		target.GetComponent<Player>().TakeDamage(0);
 	}
 
 	void Shoot()
 	{
 		Vector2 dir = target.position - (rb.position + attackOffset);
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-		GameObject go = Instantiate(bulletPrefab, rb.position + attackOffset,
+		GameObject go = Instantiate(factory.CreateBullet(bulletType), rb.position + attackOffset,
 									Quaternion.AngleAxis(angle, Vector3.forward),
 									transform.parent) as GameObject;
 		go.GetComponent<Rigidbody2D>().AddForce(dir.normalized * bulletSpeed, ForceMode2D.Impulse);
@@ -94,7 +96,6 @@ public class EnemySimpleAI : MonoBehaviour
 		Vector2 newDir = Quaternion.AngleAxis(rotAngle + 90, Vector3.forward) * Vector3.right;
 
 		Vector2 force = newDir * Time.fixedDeltaTime * moveSpeed;
-
 		rb.AddForce(force);
 
 		float absX = Mathf.Abs(rb.velocity.x);

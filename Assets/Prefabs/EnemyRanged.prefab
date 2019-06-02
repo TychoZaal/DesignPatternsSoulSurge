@@ -57,6 +57,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -217,6 +218,17 @@ PrefabInstance:
       propertyPath: bulletSpeed
       value: 4.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4379883896656103378, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+        type: 3}
+      propertyPath: bulletType
+      value: large
+      objectReference: {fileID: 0}
+    - target: {fileID: 4379883896656103378, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+        type: 3}
+      propertyPath: factory
+      value: 
+      objectReference: {fileID: 6946889174438537055, guid: cd21278ffdd8b6c449d5ea9dec5b9935,
+        type: 3}
     - target: {fileID: 4379883896121647201, guid: 828e388d6f4847e4894f7d9510a6d8e0,
         type: 3}
       propertyPath: m_LocalPosition.y
