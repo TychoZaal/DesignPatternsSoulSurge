@@ -9,7 +9,7 @@ public class Lives : MonoBehaviour
 
 	private void Update()
 	{
-		text.text = InstanceMediator.Instance.GetLives() + " left";
+		text.text = InstanceFacade.Instance.GetLives() + " left";
 	}
 
 }

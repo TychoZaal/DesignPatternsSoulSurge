@@ -95,8 +95,8 @@ public class Player : MonoBehaviour
 		if (isDead)
 			return;
 
-		InstanceMediator.Instance.LooseLife();
-		Instantiate(bloodEffect, transform.position, Quaternion.identity, InstanceMediator.Instance.GetCurrentRoom().transform);
+		InstanceFacade.Instance.LooseLife();
+		Instantiate(bloodEffect, transform.position, Quaternion.identity, InstanceFacade.Instance.GetCurrentRoom().transform);
 
 		StopAllCoroutines();
 

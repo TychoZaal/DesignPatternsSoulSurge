@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InstanceMediator : MonoBehaviour
+public class InstanceFacade : MonoBehaviour
 {
-    private static InstanceMediator _instance;
+    private static InstanceFacade _instance;
 
-    public static InstanceMediator Instance
+    public static InstanceFacade Instance
     {
         get
         {
             if (_instance == null)
             {
-                _instance = new InstanceMediator();
+                _instance = new InstanceFacade();
             }
             return _instance;
         }
