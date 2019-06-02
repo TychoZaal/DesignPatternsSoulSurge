@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
 
 	public GameObject bloodEffect;
 
+    public bool needsAttackTriggered = false;
+
 	SpriteRenderer sr;
 
 	private void Start()
@@ -17,6 +19,11 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage (int dmg)
 	{
+        if (needsAttackTriggered)
+        {
+            ZombieObserver.instance.NotifyAll();
+        }
+
 		health -= dmg;
 
 		if (health <= 0)
