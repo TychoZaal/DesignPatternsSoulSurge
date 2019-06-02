@@ -10,20 +10,20 @@ public class Shop : MonoBehaviour
 
 	public void OnSpeed()
 	{
-        InstanceFacade.Instance.Revive();
+        InstanceMediator.Instance.Revive();
 
         playerMovement.speed += 1f;
 	}
 
 	public void OnDamage()
 	{
-        InstanceFacade.Instance.Revive();
+        InstanceMediator.Instance.Revive();
         playerSword.damage += 5;
 	}
 
 	public void OnHealth()
 	{
-        InstanceFacade.Instance.Revive();
+        InstanceMediator.Instance.Revive();
         player.maxHealth += 1;
 	}
 

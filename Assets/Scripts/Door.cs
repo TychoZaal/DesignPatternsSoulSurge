@@ -16,7 +16,7 @@ public class Door : MonoBehaviour
 		if (collider.CompareTag("Player"))
 		{
 			if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-				InstanceFacade.Instance.LoadNewRoom(room, direction);
+				InstanceMediator.Instance.LoadNewRoom(room, direction);
 		}
 	}
 

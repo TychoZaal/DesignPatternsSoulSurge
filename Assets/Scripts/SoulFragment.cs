@@ -26,7 +26,7 @@ public class SoulFragment : MonoBehaviour
 		{
 			roomsPickedUp.Add(transform.parent.name);
             ObjectPooler.Instance.SpawnFromPool("SoulEffect", transform.position, Quaternion.identity);
-			InstanceFacade.Instance.GainLife();
+			InstanceMediator.Instance.GainLife();
 			Destroy(gameObject);
 		}
 	}

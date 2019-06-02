@@ -39,7 +39,7 @@ public class LifeManager : MonoBehaviour
 	public void Revive()
 	{
 		// Return to last spawnpoint
-		InstanceFacade.Instance.ResetAllRooms(Pentagram.ActiveRoomName);
+		InstanceMediator.Instance.ResetAllRooms(Pentagram.ActiveRoomName);
 		player.transform.position = Pentagram.ActivePosition;
 		player.Revive();
 	}

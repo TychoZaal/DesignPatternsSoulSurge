@@ -2676,7 +2676,7 @@ GameObject:
   - component: {fileID: 1349008461}
   - component: {fileID: 1349008460}
   m_Layer: 0
-  m_Name: Facade
+  m_Name: Mediator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
