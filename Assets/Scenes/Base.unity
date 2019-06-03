@@ -2648,6 +2648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0253ece8ba657843ad7f5667daa0e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lives: 3
   shop: {fileID: 2011071935}
   gameOver: {fileID: 1527848598}
   player: {fileID: 1520257907}
@@ -2691,7 +2692,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1349008459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91e54f5965591fb40a98e635699f212b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e26ebc2620ceb3429be806db193c385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1349008461

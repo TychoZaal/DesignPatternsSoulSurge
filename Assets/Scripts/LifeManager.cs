@@ -11,7 +11,7 @@ public class LifeManager : MonoBehaviour
 		instance = this;
 	}
 
-	private int lives = 3;
+	public int lives = 3;
 
 	public GameObject shop;
 	public GameObject gameOver;
