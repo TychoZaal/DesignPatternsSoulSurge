@@ -12,7 +12,7 @@ public class InstanceMediator : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = new InstanceMediator();
+                //_instance = new InstanceMediator();
             }
             return _instance;
         }
