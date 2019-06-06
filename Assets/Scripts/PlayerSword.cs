@@ -38,6 +38,8 @@ public abstract class Decorator : ConcreteComponent
 
     public override float GetSize()
     {
+         Debug.Log("size_inner");
+
         return size;
     }
     public override float GetSpeed()
@@ -46,30 +48,29 @@ public abstract class Decorator : ConcreteComponent
     }
 }
 
-public class ConcreteDecoratorA : Decorator
+public class SizeDecorator : Decorator
 {
-    public ConcreteDecoratorA(ConcreteComponent component) : base(component)
+    public SizeDecorator(ConcreteComponent component) : base(component)
     {
         this.concreteComponent = component;
-        size = concreteComponent.size;
+       // size = concreteComponent.size;
     }
     public override float GetSize()
-    {
-        size *= 1.1f;
-        return size;
+    { 
+        return this.concreteComponent.GetSize() * 1.1f;
     }
 }
 
-public class ConcreteDecoratorB : Decorator
+public class SpeedDecorator : Decorator
 {
-    public ConcreteDecoratorB(ConcreteComponent component) : base(component)
+    public SpeedDecorator(ConcreteComponent component) : base(component)
     {
         this.concreteComponent = component;
     }
     public override float GetSpeed()
     {
-        speed *= 1.1f;
-        return speed;
+        // speed *= 1.1f;
+        return this.concreteComponent.GetSpeed()*1.1f;//KIJK HIERNAAR
     }
 }
 
@@ -104,12 +105,17 @@ public class PlayerSword : MonoBehaviour
         swordSize = sword.transform.localScale;
         animationSpeed = animator.speed;
     }
+
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
         {
             AddSize();
+           // this.weapon = new SizeDecorator(this.weapon);
+
+          //  weapon.GetSize();
             SetStats(weapon);
+
             Collider2D[] colliders = Physics2D.OverlapCircleAll(swordPoint.position, size, swordMask); //size was swordRadius
             foreach (Collider2D collider in colliders)
             {
@@ -128,6 +134,7 @@ public class PlayerSword : MonoBehaviour
 
     void SetStats(ConcreteComponent dasWeapon)
     {
+        Debug.Log(dasWeapon.GetSize());
         this.speed = dasWeapon.GetSpeed();
         this.size = dasWeapon.GetSize();
         sword.transform.localScale = dasWeapon.GetSize() * swordSize;
@@ -136,11 +143,11 @@ public class PlayerSword : MonoBehaviour
 
     void AddSize()
     {
-        weapon = new ConcreteDecoratorA(weapon);
+        this.weapon = new SizeDecorator(this.weapon);
     }
 
     void AddSpeed()
     {
-        weapon = new ConcreteDecoratorB(weapon);
+        this.weapon = new SpeedDecorator(this.weapon);
     }
 }
