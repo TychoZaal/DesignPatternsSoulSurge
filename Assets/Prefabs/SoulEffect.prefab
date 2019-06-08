@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5675689670576964436}
   - component: {fileID: 3474073613911551439}
   - component: {fileID: 5667235980705966394}
+  - component: {fileID: -402700846819176575}
   m_Layer: 0
-  m_Name: Explosion
+  m_Name: SoulEffect
   m_TagString: Effects
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4751,7 +4752,7 @@ ParticleSystem:
 --- !u!199 &5667235980705966394
 ParticleSystemRenderer:
   serializedVersion: 6
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4810,3 +4811,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-402700846819176575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5681886080867895085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d243f5bd277f7a7459db0d81938b7784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  needsToReset: 0
