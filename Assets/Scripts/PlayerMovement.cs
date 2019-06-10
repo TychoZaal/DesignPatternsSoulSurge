@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerMemento StoreInMemento()
     {
-        Debug.Log("StoreMemento: " + this.playerPos);
+       // Debug.Log("StoreMemento: " + this.playerPos);
         return new PlayerMemento(this.playerPos);
     }
 
