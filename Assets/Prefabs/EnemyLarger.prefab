@@ -77,6 +77,31 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.7
       objectReference: {fileID: 0}
+    - target: {fileID: 4379883896656103374, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+        type: 3}
+      propertyPath: health
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914551958536207805, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+        type: 3}
+      propertyPath: attackRange
+      value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914551958536207805, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 8914551958536207805, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+        type: 3}
+      propertyPath: turnSpeed
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363449354916292598, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+        type: 3}
+      propertyPath: attackOffset.y
+      value: 0.561
+      objectReference: {fileID: 0}
     - target: {fileID: 4379883896656103378, guid: 828e388d6f4847e4894f7d9510a6d8e0,
         type: 3}
       propertyPath: attackRange
@@ -87,10 +112,6 @@ PrefabInstance:
       propertyPath: attackOffset.y
       value: 0.561
       objectReference: {fileID: 0}
-    - target: {fileID: 4379883896656103374, guid: 828e388d6f4847e4894f7d9510a6d8e0,
-        type: 3}
-      propertyPath: health
-      value: 40
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4379883896656103378, guid: 828e388d6f4847e4894f7d9510a6d8e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 828e388d6f4847e4894f7d9510a6d8e0, type: 3}
