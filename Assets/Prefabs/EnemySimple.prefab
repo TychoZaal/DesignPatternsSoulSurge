@@ -91,9 +91,10 @@ GameObject:
   - component: {fileID: 4379883896656103373}
   - component: {fileID: 4379883896656103372}
   - component: {fileID: 4379883896656103379}
-  - component: {fileID: 4379883896656103378}
   - component: {fileID: 4379883896656103374}
+  - component: {fileID: 8914551958536207805}
   - component: {fileID: 8852262722948776710}
+  - component: {fileID: 3363449354916292598}
   m_Layer: 8
   m_Name: EnemySimple
   m_TagString: Enemy
@@ -153,37 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4379883896656103378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4379883896656103377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd790c34fe46f2547b9bbe6cadcdce84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  moveSpeed: 1000
-  turnSpeed: 0.08
-  chaseRange: 999
-  attackRange: 0.75
-  attackRate: 1
-  attackOffset: {x: 0, y: 0.33}
-  isRanged: 0
-  bulletPrefab: {fileID: 0}
-  bulletSpeed: 5
-  spriteRight: {fileID: -7534984631488060871, guid: 8623682c14282724f9ed8e8873794a6f,
-    type: 3}
-  spriteLeft: {fileID: 9188974040548724399, guid: 8623682c14282724f9ed8e8873794a6f,
-    type: 3}
-  spriteUp: {fileID: 6298660582268710307, guid: 8623682c14282724f9ed8e8873794a6f,
-    type: 3}
-  spriteDown: {fileID: -8708001551457040437, guid: 8623682c14282724f9ed8e8873794a6f,
-    type: 3}
-  spriteRenderer: {fileID: 4379883896121647202}
 --- !u!114 &4379883896656103374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +169,35 @@ MonoBehaviour:
   health: 20
   bloodEffect: {fileID: 3175875602839779472, guid: 51d9d1601a8abf5498ff2995082f10e8,
     type: 3}
+  needsAttackTriggered: 0
+--- !u!114 &8914551958536207805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379883896656103377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e12794c039590b54683f9e69ff83f826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  moveSpeed: 1200
+  turnSpeed: 0.02
+  chaseRange: 5
+  attackRange: 0.75
+  attackRate: 1
+  attackOffset: {x: 0, y: 0.33}
+  spriteRight: {fileID: -7534984631488060871, guid: 8623682c14282724f9ed8e8873794a6f,
+    type: 3}
+  spriteLeft: {fileID: 9188974040548724399, guid: 8623682c14282724f9ed8e8873794a6f,
+    type: 3}
+  spriteUp: {fileID: 6298660582268710307, guid: 8623682c14282724f9ed8e8873794a6f,
+    type: 3}
+  spriteDown: {fileID: -8708001551457040437, guid: 8623682c14282724f9ed8e8873794a6f,
+    type: 3}
+  spriteRenderer: {fileID: 4379883896121647202}
 --- !u!58 &8852262722948776710
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -215,3 +214,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.36}
   serializedVersion: 2
   m_Radius: 0.16
+--- !u!114 &3363449354916292598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379883896656103377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eac8bd83254fec4dbf606454d5b5fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rb: {fileID: 0}
+  attackOffset: {x: 0, y: 0.33}

@@ -11,6 +11,16 @@ public class ZombieObserver : MonoBehaviour, IObserver
         instance = this;
     }
 
+    private void FixedUpdate()
+    {
+        for (int i = 0; i < objectsToWatch.Count; i++)
+        {
+            if (!objectsToWatch[i])
+            {
+                objectsToWatch.RemoveAt(i);
+            }
+        }
+    }
 
     public List<GameObject> objectsToWatch;
 
