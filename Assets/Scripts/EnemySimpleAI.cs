@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySimpleAI : MonoBehaviour
+public class EnemySimpleAI : MonoBehaviour, IObservable
 {
-
 	public Rigidbody2D target;
 	public float moveSpeed = 4f;
 	public float turnSpeed = .1f;
 
 	public float chaseRange = 999f;
+    public bool canChase = true;
 
 	public float attackRange = .2f;
 	public float attackRate = 1f;
@@ -39,6 +39,11 @@ public class EnemySimpleAI : MonoBehaviour
 		rb = GetComponent<Rigidbody2D>();
 
 		target = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+
+        if (!canChase)
+        {
+            ZombieObserver.instance.AddNewObservable(gameObject);
+        }
 	}
 
 	void Attack()
@@ -63,6 +68,11 @@ public class EnemySimpleAI : MonoBehaviour
 		{
 			return;
 		}
+
+        if (!canChase)
+        {
+            return;
+        }
 
 		if (dist <= attackRange)
 		{
@@ -136,4 +146,8 @@ public class EnemySimpleAI : MonoBehaviour
 		Gizmos.DrawWireSphere(transform.position + (Vector3)attackOffset, attackRange);
 	}
 
+    public void Notify()
+    {
+        canChase = true;
+    }
 }
