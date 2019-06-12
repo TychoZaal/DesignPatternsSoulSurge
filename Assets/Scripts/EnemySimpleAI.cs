@@ -30,7 +30,7 @@ public class EnemySimpleAI : MonoBehaviour
 
 	public SpriteRenderer spriteRenderer;
 
-	Rigidbody2D rb;
+	public Rigidbody2D rb;
 
 	float rotAngle = 0f;
 
@@ -48,15 +48,11 @@ public class EnemySimpleAI : MonoBehaviour
 
 	void Shoot()
 	{
-		Vector2 dir = target.position - (rb.position + attackOffset);
-		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-		GameObject go = Instantiate(factory.CreateBullet(bulletType), rb.position + attackOffset,
-									Quaternion.AngleAxis(angle, Vector3.forward),
-									transform.parent) as GameObject;
-		go.GetComponent<Rigidbody2D>().AddForce(dir.normalized * bulletSpeed, ForceMode2D.Impulse);
-	}
+		
+        GameObject go = Factory.CreateBullet(bulletType, this);
+    }
 
-	private void FixedUpdate()
+    private void FixedUpdate()
 	{
 		if (target == null)
 			return;
