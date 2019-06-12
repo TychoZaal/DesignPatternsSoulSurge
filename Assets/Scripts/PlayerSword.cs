@@ -53,7 +53,6 @@ public class SizeDecorator : Decorator
     public SizeDecorator(ConcreteComponent component) : base(component)
     {
         this.concreteComponent = component;
-       // size = concreteComponent.size;
     }
     public override float GetSize()
     { 
@@ -69,8 +68,7 @@ public class SpeedDecorator : Decorator
     }
     public override float GetSpeed()
     {
-        // speed *= 1.1f;
-        return this.concreteComponent.GetSpeed()*1.1f;//KIJK HIERNAAR
+        return this.concreteComponent.GetSpeed()*1.1f;
     }
 }
 
@@ -111,12 +109,9 @@ public class PlayerSword : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             AddSize();
-           // this.weapon = new SizeDecorator(this.weapon);
-
-          //  weapon.GetSize();
             SetStats(weapon);
 
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(swordPoint.position, size, swordMask); //size was swordRadius
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(swordPoint.position, size, swordMask);
             foreach (Collider2D collider in colliders)
             {
                 collider.GetComponent<Enemy>().TakeDamage(damage);
