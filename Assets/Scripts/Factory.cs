@@ -13,7 +13,7 @@ public class Factory : MonoBehaviour
         largeBullet = Resources.Load<GameObject>("EnemyBulletLarge");
     }
 
-   static public GameObject CreateBullet(string type, EnemySimpleAI enemy)
+   static public GameObject CreateBullet(string type, ShootingBehaviour enemy)
     {
         Vector2 dir = enemy.target.position - (enemy.rb.position + enemy.attackOffset);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;

@@ -16,9 +16,6 @@ public class ShootingBehaviour : AttackBehaviour
     {
         Vector2 dir = base.target.position - (rb.position + attackOffset);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90f;
-        GameObject go = Instantiate(bulletPrefab, rb.position + attackOffset,
-                                    Quaternion.AngleAxis(angle, Vector3.forward),
-                                    transform.parent) as GameObject;
-        go.GetComponent<Rigidbody2D>().AddForce(dir.normalized * bulletSpeed, ForceMode2D.Impulse);
+        Factory.CreateBullet("large", this); //Lets the factory handle the bullet instantiation. Uses a string to define the type of bullet
     }
 }
