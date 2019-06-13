@@ -1,5 +1,48 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &4505955286613063008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831455461285473236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cf39b8b6b893b4e82e5f7b593b4c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  moveSpeed: 1500
+  turnSpeed: 0.2
+  chaseRange: 10
+  attackRange: 0.55
+  attackRate: 1
+  attackOffset: {x: 0, y: 0}
+  spriteRight: {fileID: 6542315382480725714, guid: 650004913ce100e42a42c63d873aa662,
+    type: 3}
+  spriteLeft: {fileID: 1467210484489533934, guid: 650004913ce100e42a42c63d873aa662,
+    type: 3}
+  spriteUp: {fileID: -6088913493494101790, guid: 650004913ce100e42a42c63d873aa662,
+    type: 3}
+  spriteDown: {fileID: 8875853713092629353, guid: 650004913ce100e42a42c63d873aa662,
+    type: 3}
+  spriteRenderer: {fileID: 2831455462894750823}
+--- !u!114 &5275649091214587668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2831455461285473236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eac8bd83254fec4dbf606454d5b5fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  rb: {fileID: 0}
+  attackOffset: {x: 0, y: 0.21}
 --- !u!1001 &1982464060849302533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,5 +185,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8875853713092629353, guid: 650004913ce100e42a42c63d873aa662,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3363449354916292598, guid: 828e388d6f4847e4894f7d9510a6d8e0, type: 3}
+    - {fileID: 4379883896656103378, guid: 828e388d6f4847e4894f7d9510a6d8e0, type: 3}
+    - {fileID: 8914551958536207805, guid: 828e388d6f4847e4894f7d9510a6d8e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 828e388d6f4847e4894f7d9510a6d8e0, type: 3}
+--- !u!1 &2831455461285473236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4379883896656103377, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1982464060849302533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2831455462894750823 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4379883896121647202, guid: 828e388d6f4847e4894f7d9510a6d8e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1982464060849302533}
+  m_PrefabAsset: {fileID: 0}
