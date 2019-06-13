@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMemento
 {
-    Vector2 playerPos;
+    private Vector2 playerPos;
 
     public PlayerMemento(Vector2 playerPos)
     {
@@ -16,3 +16,5 @@ public class PlayerMemento
         return this.playerPos;
     }
 }
+
+

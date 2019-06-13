@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TricksterAbility : MonoBehaviour
+public class TracerAbility : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField]
+    private GameObject player;
 
-    // private PlayerMovement originator = new PlayerMovement();
+    //originator of the memento data
     private PlayerMovement originator;
 
     private PlayerCaretaker careTaker = new PlayerCaretaker();
@@ -27,20 +28,19 @@ public class TricksterAbility : MonoBehaviour
         StartCoroutine(PeriodicalPlayerStateSafe());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if(mementoIndex == 1)
+            if(mementoIndex > 2)
             {
+                Reset();
                 return;
             }
             PlayerMemento LastSavedMemento = careTaker.GetMemento(mementoIndex);
             Vector2 LastSavedPosition = LastSavedMemento.GetSavedPlayerPosition();
             originator.SetPosition(LastSavedPosition);
-
-            StartCoroutine(SetCanTeleport());
+            mementoIndex++;
         }
     }
 

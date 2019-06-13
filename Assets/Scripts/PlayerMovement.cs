@@ -74,15 +74,8 @@ public class PlayerMovement : MonoBehaviour
 
     public PlayerMemento StoreInMemento()
     {
-        Debug.Log("StoreMemento: " + this.playerPos);
         return new PlayerMemento(this.playerPos);
     }
 
-    public Vector2 RestoreFromMemento(PlayerMemento playerMemento)
-    {
-        this.playerPos = playerMemento.GetSavedPlayerPosition();
-
-        return this.playerPos;
-    }
 
 }
