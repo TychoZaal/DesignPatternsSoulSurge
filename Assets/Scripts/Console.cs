@@ -11,6 +11,12 @@ public class Console : MonoBehaviour
     public InputField mainInputField;
     string input;
 
+    [NonSerialized]
+    public PlayerMovement playerMovement;
+
+    [SerializeField]
+    GameObject player;
+
     List<Token> Lex(string input)
     {
         var result = new List<Token>();
@@ -24,17 +30,24 @@ public class Console : MonoBehaviour
                 case '-':
                     result.Add(new Token(Token.Type.Minus, "-"));
                     break;
+                case '=':
+                    result.Add(new Token(Token.Type.Equals, "="));
+                    break;
                 case '(':
                     result.Add(new Token(Token.Type.LParen, "("));
                     break;
                 case ')':
                     result.Add(new Token(Token.Type.RParen, ")"));
                     break;
-
                 //default is used for numbers, to make sure 12 is not seen as a 1 and 2 but as 12
                 default:
                     //add input[] on index i to StringBuilder sb
                     var sb = new StringBuilder(input[i].ToString());
+                    if (char.IsLetter(input[i]))
+                    {
+                        result.Add(new Token(Token.Type.Variable, input[i].ToString()));
+                        break;
+                    }
                     if(i == input.Length - 1)
                     {
                         result.Add(new Token(Token.Type.Integer, sb.ToString()));
@@ -86,13 +99,31 @@ public class Console : MonoBehaviour
                         result.Right = integer;
                     }
                     break;
+                case Token.Type.Variable:
+                    if (!haveLHS)
+                    {
+                        result.Var = token.Text;
+
+                        if (token.Text == "s")
+                        { 
+                            Debug.Log("ey g is variable");
+                            //result.MyType = BinaryOperation.Type.Equalisation;
+                        }
+                        
+                        //haveLHS = true;
+                    }
+                    break;
+                case Token.Type.Equals:
+                    result.MyType = BinaryOperation.Type.Equalisation;
+                    break;
                 case Token.Type.Plus:
                     result.MyType = BinaryOperation.Type.Addition;
                     break;
                 case Token.Type.Minus:
                     result.MyType = BinaryOperation.Type.Subtraction;
                     break;
-                /*case Token.Type.LParen:
+
+            /*    case Token.Type.LParen:
                     int j = i;
                     var subexpression = tokens.Skip(i + 1).Take(j - i - 1).ToList();
                     var element = Parse(subexpression);
@@ -105,8 +136,8 @@ public class Console : MonoBehaviour
                     {
                         result.Right = element;
                     }
-                    break;
-                default:*/
+                    break;*/
+                default:
                     throw new ArgumentOutOfRangeException();
             }
         }
@@ -117,7 +148,8 @@ public class Console : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainInputField.text = "Lisa is cool..";
+        mainInputField.text = "Enter Command";
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -127,26 +159,33 @@ public class Console : MonoBehaviour
         {
             input = mainInputField.text;
             var tokens = Lex(input);
-            Debug.Log(string.Join("\t", tokens));
+
+            string firstToken = tokens[0].ToString();
             mainInputField.text = "";
 
             var parsed = Parse(tokens);
-            Debug.Log("Value: " + parsed.Value);
-        }
 
+            if (firstToken == "'s'")
+            {
+                playerMovement.speed = parsed.Value;
+            }
+
+        }
 
     }
 }
 
 public class BinaryOperation : IElement
 {
+    public int poep;
     public enum Type
     {
-        Addition, Subtraction
+        Addition, Subtraction, Equalisation
     }
 
     public Type MyType;
     public IElement Left, Right;
+    public string Var;
 
     public int Value
     {
@@ -158,6 +197,9 @@ public class BinaryOperation : IElement
                     return Left.Value + Right.Value;
                 case Type.Subtraction:
                     return Left.Value - Right.Value;
+                case Type.Equalisation:
+                    return Right.Value;
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -180,11 +222,12 @@ public class Integer : IElement
     public int Value { get; }
 }
 
+
 public class Token
 {
     public enum Type
     {
-        Integer, Plus, Minus, LParen, RParen
+        Integer, Plus, Minus, LParen, RParen, Equals, Variable
     }
 
     public Type MyType;
